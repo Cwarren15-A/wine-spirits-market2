@@ -8,15 +8,15 @@ interface RawProduct {
   producer: string;
   vintage: number;
   bottleSize: string;
-  criticScore: number;
-  criticSource: string;
+  criticScore: number; // Can be NaN
+  criticSource: number; // Can be NaN  
   currentMarketPriceUSD: number;
-  fiveYearPriceChangePct: number;
+  fiveYearPriceChangePct: number; // Can be NaN
   investmentPotential: string;
   marketTrend: string;
   provenance: string;
   tastingNotes: string;
-  image: string;
+  image: number; // Can be NaN
   slug: string;
 }
 
