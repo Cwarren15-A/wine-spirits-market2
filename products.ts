@@ -1,6 +1,26 @@
-import type { Product } from './api';
+// Product data for wine and spirits marketplace
+interface RawProduct {
+  id: string;
+  name: string;
+  category: string;
+  subCategory: string;
+  region: string;
+  producer: string;
+  vintage: number;
+  bottleSize: string;
+  criticScore: number;
+  criticSource: string;
+  currentMarketPriceUSD: number;
+  fiveYearPriceChangePct: number;
+  investmentPotential: string;
+  marketTrend: string;
+  provenance: string;
+  tastingNotes: string;
+  image: string;
+  slug: string;
+}
 
-export const products: Product[] = [
+export const products: RawProduct[] = [
   {
     "id": "65b69384-5c21-4f17-b4cc-66a4c526178c",
     "name": "Ch\u00e2teau Lafite Rothschild 2010",
