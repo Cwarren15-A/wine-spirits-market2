@@ -49,6 +49,7 @@ export interface Product {
     total_sales?: number;
   };
   slug?: string;
+  shipping_restrictions?: string[];
 }
 
 export interface OrderBook {
