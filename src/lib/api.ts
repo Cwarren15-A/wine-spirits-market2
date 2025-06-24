@@ -196,7 +196,8 @@ export const utils = {
     }).format(price);
   },
 
-  formatPercentage(pct: number): string {
+  formatPercentage(pct: number | undefined): string {
+    if (pct === undefined || pct === null || isNaN(pct)) return "N/A";
     const sign = pct >= 0 ? '+' : '';
     return `${sign}${pct.toFixed(2)}%`;
   },
@@ -205,7 +206,8 @@ export const utils = {
     return type === 'wine' ? '🍷' : '🥃';
   },
 
-  getRatingStars(rating: number): string {
+  getRatingStars(rating: number | undefined): string {
+    if (!rating || isNaN(rating)) return "☆☆☆☆☆";
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 >= 0.5;
     const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
@@ -215,14 +217,16 @@ export const utils = {
            '☆'.repeat(emptyStars);
   },
 
-  formatVolume(volumeMl: number): string {
+  formatVolume(volumeMl: number | undefined): string {
+    if (!volumeMl) return "N/A";
     if (volumeMl >= 1000) {
       return `${(volumeMl / 1000).toFixed(1)}L`;
     }
     return `${volumeMl}ml`;
   },
 
-  formatAlcoholContent(abv: number): string {
+  formatAlcoholContent(abv: number | undefined): string {
+    if (!abv) return "N/A";
     return `${abv.toFixed(1)}%`;
   },
 
